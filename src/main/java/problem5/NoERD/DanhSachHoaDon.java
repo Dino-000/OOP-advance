@@ -3,7 +3,9 @@ package problem5.NoERD;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 @Data
 @AllArgsConstructor
@@ -16,37 +18,37 @@ public class DanhSachHoaDon {
     this.danhSach = new ArrayList<>();
     this.count = count;
   }
-  //  public void DanhSachHoaDon(int number) {
-  //    Scanner keyboard = new Scanner(System.in);
-  //    for (int i = 0; i < number; i++) {
-  //      System.out.println("Enter MaHD");
-  //      String MaHD = keyboard.nextLine();
-  //      System.out.println("Enter ngayHD");
-  //      LocalDate ngayHD = LocalDate.parse(keyboard.nextLine());
-  //      System.out.println("Enter tenKH");
-  //      String tenKH = keyboard.nextLine();
-  //      System.out.println("Enter maPhong");
-  //      String maPhong = keyboard.nextLine();
-  //      System.out.println("Enter donGia");
-  //      double donGia = Double.parseDouble(keyboard.nextLine());
-  //      System.out.println("a) Enter Hour receipt \nb) Enter Day Receipt");
-  //      String userChoice = keyboard.nextLine();
-  //      while (!userChoice.equals("a") && !userChoice.equals("b")) {
-  //        System.out.println("a) Enter Hour receipt \nb) Enter Day Receipt");
-  //        userChoice = keyboard.nextLine();
-  //      }
-  //      if (keyboard.nextLine().equals("a")) {
-  //        System.out.println("Enter soGioThue");
-  //        int soGioThue = Integer.parseInt(keyboard.nextLine());
-  //        danhSach.add(new HoaDonGio(MaHD, ngayHD, tenKH, maPhong, donGia, soGioThue));
-  //
-  //      } else {
-  //        System.out.println("Enter soNgayThue");
-  //        int soNgayThue = Integer.parseInt(keyboard.nextLine());
-  //        danhSach.add(new HoaDonNgay(MaHD, ngayHD, tenKH, maPhong, donGia, soNgayThue));
-  //      }
-  //    }
-  //  }
+    public HoaDon NhapHoaDon() {
+      Scanner keyboard = new Scanner(System.in);
+
+        System.out.println("Enter MaHD");
+        String MaHD = keyboard.nextLine();
+        System.out.println("Enter ngayHD");
+        LocalDate ngayHD = LocalDate.parse(keyboard.nextLine());
+        System.out.println("Enter tenKH");
+        String tenKH = keyboard.nextLine();
+        System.out.println("Enter maPhong");
+        String maPhong = keyboard.nextLine();
+        System.out.println("Enter donGia");
+        double donGia = Double.parseDouble(keyboard.nextLine());
+        System.out.println("a) Enter Hour receipt \nb) Enter Day Receipt");
+        String userChoice = keyboard.nextLine();
+        while (!userChoice.equals("a") && !userChoice.equals("b")) {
+          System.out.println("a) Enter Hour receipt \nb) Enter Day Receipt");
+          userChoice = keyboard.nextLine();
+        }
+        if (keyboard.nextLine().equals("a")) {
+          System.out.println("Enter soGioThue");
+          int soGioThue = Integer.parseInt(keyboard.nextLine());
+          return new HoaDonGio(MaHD, ngayHD, tenKH, maPhong, donGia, soGioThue);
+
+        } else {
+          System.out.println("Enter soNgayThue");
+          int soNgayThue = Integer.parseInt(keyboard.nextLine());
+          return new HoaDonNgay(MaHD, ngayHD, tenKH, maPhong, donGia, soNgayThue);
+        }
+      }
+
 
   public boolean them(HoaDon hd) {
     boolean isNotExistBefore = true;

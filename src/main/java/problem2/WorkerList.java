@@ -12,7 +12,14 @@ import java.util.Scanner;
 @AllArgsConstructor
 @Data
 public class WorkerList {
-  ArrayList<Worker> workers;
+  private ArrayList<Worker> workers;
+  private int count;
+
+  public WorkerList( int count) {
+    this.workers = new ArrayList<>();
+    this.count = count;
+    System.out.println(workers.size());
+  }
 
   public void initialWorkerList(int number) {
     if (number <= 0) {
@@ -22,8 +29,7 @@ public class WorkerList {
       workers = new ArrayList<>(number);
       Scanner keyboard = new Scanner(System.in);
       System.out.println("Enter number of employee you want to input their info");
-      int numberOfEmp = keyboard.nextInt();
-      System.out.println();
+      int numberOfEmp = Integer.parseInt(keyboard.nextLine());
       for (int i = 0; i < numberOfEmp; i++) {
 
         System.out.println("---------------");
@@ -34,12 +40,12 @@ public class WorkerList {
         System.out.println("Enter employee's " + (i + 1) + " first name:");
         String firstName = keyboard.nextLine();
         System.out.println("Enter employee's " + (i + 1) + " number of product:");
-        Integer numberOfProductDone = keyboard.nextInt();
+        int numberOfProductDone = Integer.parseInt(keyboard.nextLine());
         System.out.println();
         while (numberOfProductDone < 1) {
           System.out.println("Number of product should be greater than 0");
           System.out.println("Enter employee's " + (i + 1) + " number of product:");
-          numberOfProductDone = keyboard.nextInt();
+          numberOfProductDone = Integer.parseInt(keyboard.nextLine());
           System.out.println();
         }
         String status = addWorker(id, lastName, firstName, numberOfProductDone);
@@ -49,14 +55,13 @@ public class WorkerList {
     }
   }
 
-  public String addWorker(
-      String id, String lastName, String firstName, Integer numberOfProductDone) {
+  public String addWorker(String id, String lastName, String firstName, Integer numberOfProductDone) {
     String result = "new worker added successful";
-//    if (workers.get(workers.size()-1)==null) {
+    if (workers.size()<count) {
       workers.add(new Worker(id, lastName, firstName, numberOfProductDone));
-//    } else {
-//      result = "Sorry, the list is fulfill and can not be added anymore.";
-//    }
+    } else {
+      result = "Sorry, the list is fulfill and can not be added anymore.";
+    }
     return result;
   }
 
@@ -88,25 +93,5 @@ public class WorkerList {
     return "WorkerList{" + "workers=" + workers + '}';
   }
 
-  public static void main(String[] args) {
-    Scanner keyboard = new Scanner(System.in);
-    System.out.println("Please enter a number of worker in your list:");
-    int numberOfEmp = keyboard.nextInt();
-    System.out.println();
-    WorkerList workerList = new WorkerList();
-    workerList.initialWorkerList(numberOfEmp);
-    System.out.println("-----------------------------");
-    workerList.showList();
-    System.out.println("-----------------------------");
-    System.out.println("Number of Worker existing in list:");
-    System.out.println(workerList.countNumberOfWorkerInList());
-    System.out.println(workerList.getWorkers().size());
-    System.out.println("-----------------------------");
-    System.out.println("List of worker produce more than 200 products");
-    System.out.println(workerList.listOfWorkerFinishMoreThan200Products().size());
-    System.out.println("-----------------------------");
-    System.out.println("List of worker order by number of products desc");
-    workerList.sortListOfWorker();
-    workerList.showList();
-  }
+
 }

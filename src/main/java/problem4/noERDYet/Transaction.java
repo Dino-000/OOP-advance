@@ -17,4 +17,14 @@ public abstract class Transaction {
     public Double amountOfTransaction(){
         return quantity*unitPrice;
     }
+
+    @Override
+    public String toString() {
+        return "Transaction{" +
+                "code='" + code + '\'' +
+                ", date=" + date +
+                ", quantity=" + quantity +
+                ", unitPrice=" + unitPrice +
+                '}';
+    }
 }

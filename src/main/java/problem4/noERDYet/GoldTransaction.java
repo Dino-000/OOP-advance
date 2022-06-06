@@ -8,9 +8,22 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 
-@NoArgsConstructor
 @Data
-@AllArgsConstructor
 public class GoldTransaction extends Transaction{
     private String goldType;
+
+    public GoldTransaction(String code, LocalDate date, Double quantity, Double unitPrice, String goldType) {
+        super(code, date, quantity, unitPrice);
+        this.goldType = goldType;
+    }
+
+    public GoldTransaction(String goldType) {
+        this.goldType = goldType;
+    }
+
+    @Override
+    public String toString() {
+        return "\nGoldTransaction{" + super.toString()+
+                "goldType='" + goldType + "}" ;
+    }
 }

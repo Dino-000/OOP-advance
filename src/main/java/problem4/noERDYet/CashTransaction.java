@@ -4,12 +4,25 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
+
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
+
 public class CashTransaction extends Transaction {
   private Currencies currency;
   private double exchangeRate;
+
+  public CashTransaction(String code, LocalDate date, Double quantity, Double unitPrice, Currencies currency, double exchangeRate) {
+    super(code, date, quantity, unitPrice);
+    this.currency = currency;
+    this.exchangeRate = exchangeRate;
+  }
+
+  public CashTransaction(Currencies currency, double exchangeRate) {
+    this.currency = currency;
+    this.exchangeRate = exchangeRate;
+  }
+
 
   @Override
   public Double amountOfTransaction() {
@@ -20,5 +33,14 @@ public class CashTransaction extends Transaction {
       result = super.getQuantity() * super.getUnitPrice() * exchangeRate;
     }
     return result;
+  }
+
+  @Override
+  public String toString() {
+    return "\nCashTransaction{" +
+             super.toString()+
+            "currency=" + currency +
+            ", exchangeRate=" + exchangeRate +
+            '}';
   }
 }

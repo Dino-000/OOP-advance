@@ -8,10 +8,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
 public class TransactionManagement {
-  List<Transaction> transactions;
+  private ArrayList<Transaction> transactions;
+
+  public TransactionManagement() {
+    transactions = new ArrayList<>();
+  }
+
+  public void addTransaction(Transaction transaction){
+    transactions.add(transaction);
+  }
 
   public void returnNumberOfEachTransactionInData() {
     int numberOfGoldTransaction = 0;

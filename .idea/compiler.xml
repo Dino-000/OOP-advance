@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="oopadvance" />
+        <module name="OOP-advance" />
       </profile>
     </annotationProcessing>
   </component>
