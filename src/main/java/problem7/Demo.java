@@ -6,7 +6,7 @@ public class Demo {
     integerSet.setIntegerSet1();
     integerSet.setIntegerSet2();
     integerSet.addAllSet();
-    integerSet.removeAllFromB();
     integerSet.retainAllFromB();
+    integerSet.removeAllFromB();
   }
 }

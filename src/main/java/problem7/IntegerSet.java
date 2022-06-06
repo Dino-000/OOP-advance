@@ -25,6 +25,7 @@ public class IntegerSet {
       integerSet1.add(Integer.parseInt(getKeyboard().nextLine()));
     }
     System.out.println("integer set 1 was initialed");
+    System.out.println(integerSet1);
   }
 
   public void setIntegerSet2() {
@@ -33,9 +34,10 @@ public class IntegerSet {
     int setLength = Integer.parseInt(getKeyboard().nextLine());
     for (int i = 0; i < setLength; i++) {
       System.out.println("Please input the integer " + (i + 1));
-      integerSet1.add(Integer.parseInt(getKeyboard().nextLine()));
+      integerSet2.add(Integer.parseInt(getKeyboard().nextLine()));
     }
     System.out.println("integer set 2 was initialed");
+    System.out.println(integerSet2);
   }
 
   public void addAllSet() {
