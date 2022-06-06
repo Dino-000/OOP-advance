@@ -5,11 +5,21 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
+
 public class Employee extends Person{
     private double salaryRate;
     private  int numberOfHours;
+
+    public Employee(double salaryRate, int numberOfHours) {
+        this.salaryRate = salaryRate;
+        this.numberOfHours = numberOfHours;
+    }
+
+    public Employee(String name, String address, double salaryRate, int numberOfHours) {
+        super(name, address);
+        this.salaryRate = salaryRate;
+        this.numberOfHours = numberOfHours;
+    }
 
     public double returnSalary() {
         return salaryRate*numberOfHours;

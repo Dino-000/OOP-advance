@@ -4,8 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@NoArgsConstructor
-@AllArgsConstructor
 @Data
 public class Student extends Person {
     private double score1;
@@ -13,6 +11,14 @@ public class Student extends Person {
 
     public double returnAverageScore () {
         return (score1+score2)/2;
+    }
+
+
+
+    public Student(String name, String address, double score1, double score2) {
+        super(name,address);
+        this.score1 = score1;
+        this.score2 = score2;
     }
 
     public void danhGia(){
